@@ -1,0 +1,10 @@
+# Journal Entries and Useful Code Snippets 
+_dev/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor folders
+.vscode/
+.idea/
