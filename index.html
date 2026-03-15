@@ -261,9 +261,30 @@
           </div>
         </div>
       </section>
-      <section id="contact">
+      <section id="contact" class="mb-5">
         <h2>Contact</h2>
-        <p>Contact form will go here.</p>
+        <!-- Pasted from 02-a11y/01-form.html homework -->
+        <form action="/submit">
+          <label for="name">Name</label>
+          <input type="text" id="name" />
+          <br /><br />
+          <label for="email">Email</label>
+          <input type="email" id="email" />
+          <br /><br />
+          <fieldset>
+            <legend>Favorit Chacter</legend>
+            <input type="radio" id="spongebob" name="character" />
+            <label for="spongebob">Spongebob</label>
+            <br />
+            <input type="radio" id="patrick" name="character" />
+            <label for="patrick">Patrick</label>
+            <br />
+            <input type="radio" id="sandy" name="character" />
+            <label for="sandy">Sandy</label>
+          </fieldset>
+          <br />
+          <input type="submit" value="Submit" />
+        </form>
       </section>
     </main>
     <footer class="text-center py-3">
