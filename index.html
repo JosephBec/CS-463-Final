@@ -263,27 +263,20 @@
       </section>
       <section id="contact" class="mb-5">
         <h2>Contact</h2>
-        <!-- Pasted from 02-a11y/01-form.html homework -->
-        <form action="/submit">
-          <label for="name">Name</label>
-          <input type="text" id="name" />
-          <br /><br />
-          <label for="email">Email</label>
-          <input type="email" id="email" />
-          <br /><br />
-          <fieldset>
-            <legend>Favorit Chacter</legend>
-            <input type="radio" id="spongebob" name="character" />
-            <label for="spongebob">Spongebob</label>
-            <br />
-            <input type="radio" id="patrick" name="character" />
-            <label for="patrick">Patrick</label>
-            <br />
-            <input type="radio" id="sandy" name="character" />
-            <label for="sandy">Sandy</label>
-          </fieldset>
+        <form id="contact-form" action="/submit">
+          <label for="contact-name">Name</label>
           <br />
-          <input type="submit" value="Submit" />
+          <input type="text" id="contact-name" required />
+          <br /><br />
+          <label for="contact-email">Email</label>
+          <br />
+          <input type="email" id="contact-email" required />
+          <br /><br />
+          <label for="contact-message">Message</label>
+          <br />
+          <textarea id="contact-message" rows="5" cols="40" required></textarea>
+          <br /><br />
+          <input type="submit" value="Send" />
         </form>
       </section>
     </main>
