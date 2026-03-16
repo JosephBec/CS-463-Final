@@ -1,37 +1,72 @@
-// Pasted from 07-javascript/04-dom.js homework
+// Form validation for contact form
 
-// Exercise #1:
-// when the user clicks the 'copy' button, copy the user input to the output area
+const form = document.querySelector("#contact-form");
+const nameInput = document.querySelector("#contact-name");
+const emailInput = document.querySelector("#contact-email");
+const messageInput = document.querySelector("#contact-message");
 
-// fetch JavaScript objects representing specific elements in the DOM
-let userInput = document.querySelector("#userInput1");
-let copy = document.querySelector("#copy");
-let output = document.querySelector(".output");
+form.addEventListener("submit", handleSubmit);
 
-// add an event listener on the target element
-copy.addEventListener("click", handleClick);
+function handleSubmit(event) {
+  event.preventDefault();
 
-// callback function to handle event
-function handleClick(event) {
-  output.textContent = userInput.value;
+  // clear old errors
+  clearErrors();
+
+  let isValid = true;
+
+  // check name
+  if (nameInput.value.trim() === "") {
+    showError(nameInput, "Please enter your name.");
+    isValid = false;
+  }
+
+  // check email
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (emailInput.value.trim() === "") {
+    showError(emailInput, "Please enter your email.");
+    isValid = false;
+  } else if (!emailPattern.test(emailInput.value.trim())) {
+    showError(emailInput, "Please enter a valid email address.");
+    isValid = false;
+  }
+
+  // check message
+  if (messageInput.value.trim() === "") {
+    showError(messageInput, "Please enter a message.");
+    isValid = false;
+  }
+
+  if (isValid) {
+    // show confirmation
+    const confirmation = document.createElement("p");
+    confirmation.textContent = "Thanks! Your message has been sent.";
+    confirmation.setAttribute("id", "form-confirmation");
+    form.after(confirmation);
+
+    // reset form
+    form.reset();
+
+    // remove confirmation after a few seconds
+    setTimeout(() => {
+      confirmation.remove();
+    }, 4000);
+  }
 }
 
-// Exercise #2:
-// when the user enters input text, copy the user input to the output area
+function showError(input, message) {
+  const error = document.createElement("span");
+  error.textContent = message;
+  error.setAttribute("class", "error-message");
+  input.after(error);
+}
 
-// fetch JavaScript objects representing specific elements in the DOM
-let userInput2 = document.querySelector("#userInput2");
+function clearErrors() {
+  const errors = document.querySelectorAll(".error-message");
+  errors.forEach((error) => error.remove());
 
-// add an event listener on the target element
-userInput2.addEventListener("input", handleInput);
-
-let section = document.querySelector("#inputEventExample");
-let element = document.createElement("div");
-element.setAttribute("class", "output");
-section.append(element);
-
-// callback function to handle event
-function handleInput(event) {
-  console.log(userInput2.value);
-  element.textContent = userInput2.value;
+  const confirmation = document.querySelector("#form-confirmation");
+  if (confirmation) {
+    confirmation.remove();
+  }
 }
