@@ -1,1 +1,67 @@
-/* styles will be built out as sections get added */
+/* navbar */
+.navbar {
+  background-color: var(--green) !important;
+}
+
+/* sections */
+section {
+  padding: 1.5em 0;
+}
+
+/* about photo */
+#about img {
+  max-width: 250px;
+  margin-bottom: 1em;
+}
+
+/* accordion */
+.accordion-button:not(.collapsed) {
+  background-color: var(--light-green);
+  color: var(--gray1);
+}
+
+/* project cards */
+.card {
+  border-color: var(--gray3);
+}
+
+/* contact form */
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+  width: 100%;
+  max-width: 500px;
+  padding: 0.4em;
+  border: 1px solid var(--gray3);
+}
+
+#contact-form input[type="submit"] {
+  background-color: var(--green);
+  color: var(--white);
+  border: none;
+  padding: 0.5em 1.5em;
+  cursor: pointer;
+}
+
+#contact-form input[type="submit"]:hover {
+  background-color: var(--gray2);
+}
+
+.error-message {
+  color: red;
+  display: block;
+  font-size: 0.85em;
+  margin-top: 0.2em;
+}
+
+#form-confirmation {
+  color: var(--green);
+  font-weight: bold;
+  margin-top: 1em;
+}
+
+/* footer */
+footer {
+  background-color: var(--green);
+  color: var(--white);
+}
