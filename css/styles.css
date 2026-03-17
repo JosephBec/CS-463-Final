@@ -10,7 +10,8 @@ section {
 
 /* about photo */
 #about img {
-  max-width: 250px;
+  width: 100%;
+  height: auto;
   margin-bottom: 1em;
 }
 
