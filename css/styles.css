@@ -1,13 +1,16 @@
-/* offset scroll so fixed navbar doesn't cover headings */
+/* when you click a nav link, the page scrolls but the fixed navbar covers the heading.
+this adds padding at the top so the heading lands below the navbar instead */
 html {
   scroll-padding-top: 80px;
 }
 
-/* navbar */
+/* override bootstrap's default navbar color with our green */
 .navbar {
   background-color: var(--green) !important;
 }
 
+/* bootstrap's navbar-dark makes links a semi-transparent white which fails
+the Wave contrast check. forcing them to full white fixes it */
 .navbar .nav-link {
   color: #ffffff !important;
 }
@@ -16,30 +19,32 @@ html {
   color: var(--gray3) !important;
 }
 
-/* sections */
+/* give each section some breathing room */
 section {
   padding: 1.5em 0;
 }
 
-/* about photo */
+/* photo scales with the column so it doesn't overflow on small screens */
 #about img {
   width: 100%;
   height: auto;
   margin-bottom: 1em;
 }
 
-/* accordion */
+/* when an accordion panel is open, give it a light green background
+to tie it into the color scheme */
 .accordion-button:not(.collapsed) {
   background-color: var(--light-green);
   color: var(--gray1);
 }
 
-/* project cards */
+/* subtle border on the project cards */
 .card {
   border-color: var(--gray3);
 }
 
-/* contact form */
+/* form inputs stretch to fill their container, but cap at 500px
+so they don't look weird on wide screens */
 #contact-form input[type="text"],
 #contact-form input[type="email"],
 #contact-form textarea {
@@ -49,6 +54,7 @@ section {
   border: 1px solid var(--gray3);
 }
 
+/* green submit button to match the rest of the site */
 #contact-form input[type="submit"] {
   background-color: var(--green);
   color: var(--white);
@@ -61,6 +67,7 @@ section {
   background-color: var(--gray2);
 }
 
+/* these get added by main.js when form validation fails */
 .error-message {
   color: red;
   display: block;
@@ -68,13 +75,14 @@ section {
   margin-top: 0.2em;
 }
 
+/* shows up after a successful form submit, disappears after 4 seconds */
 #form-confirmation {
   color: var(--green);
   font-weight: bold;
   margin-top: 1em;
 }
 
-/* footer */
+/* footer matches the navbar color */
 footer {
   background-color: var(--green);
   color: var(--white);

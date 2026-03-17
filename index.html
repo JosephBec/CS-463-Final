@@ -5,18 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Joseph Bec | Personal Website</title>
+
+    <!-- pulling in Bootstrap 5 so I don't have to host it myself -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
     />
+
+    <!-- base.css has my CSS variables and resets, styles.css has the component-level stuff -->
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+    <!-- using semantic header tag here for the navbar area -->
     <header>
+      <!-- navbar-expand-md means it shows the full nav links on mediumish screens,
+      and collapses into a hamburger menu on anything smaller.
+      fixed-top keeps it stuck to the top when you scroll.
+      the toggler below is something we did NOT cover in any homework,
+      I had to figure out the data-bs-toggle and data-bs-target attributes
+      from the Bootstrap docs -->
       <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container">
           <a class="navbar-brand" href="#">Joseph Bec</a>
+          <!-- this button only shows up on small screens, it's the hamburger icon -->
           <button
             class="navbar-toggler"
             type="button"
@@ -28,6 +40,7 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
+          <!-- ms-auto pushes the nav links to the right side of the bar -->
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
@@ -47,12 +60,22 @@
         </div>
       </nav>
     </header>
+
+    <!-- mt-5 and pt-4 push content down so the fixed navbar doesn't sit on top of it -->
     <main class="container mt-5 pt-4">
+      <!-- h1 is here for proper heading hierarchy, Wave flags it if you skip straight to h2 -->
       <h1 class="mb-4">Joseph Bec</h1>
+
+      <!-- ABOUT SECTION
+      using Bootstrap's row/col grid to put the photo on the left
+      and the text on the right. on small screens they stack vertically.
+      the image approach came from homework 01 (images exercise),
+      and the grid is from the Bootstrap homework (06) -->
       <section id="about" class="mb-5">
         <h2>About</h2>
         <div class="row">
           <div class="col-md-4">
+            <!-- alt text for accessibility, the class img-fluid lets it scale with the column -->
             <img
               src="assets/Black shirt headshot.jpeg"
               alt="Photo of Joseph Bec"
@@ -75,9 +98,16 @@
           </div>
         </div>
       </section>
+
+      <!-- PREVIOUS WORK SECTION
+      this uses Bootstrap's accordion component, which we did NOT use
+      in any homework. we did cards, modals, and grids in homework 06,
+      but I had to look up the accordion in the Bootstrap docs.
+      data-bs-parent is important, it makes it so only one panel is open at a time -->
       <section id="previous-work" class="mb-5">
         <h2>Previous Work</h2>
         <div class="accordion" id="workAccordion">
+          <!-- each accordion-item has a header with a button that toggles the collapse -->
           <div class="accordion-item">
             <h3 class="accordion-header" id="headingOne">
               <button
@@ -92,6 +122,7 @@
                 (2022–Present)
               </button>
             </h3>
+            <!-- this one starts open because of the "show" class -->
             <div
               id="collapseOne"
               class="accordion-collapse collapse show"
@@ -226,12 +257,20 @@
           </div>
         </div>
       </section>
+
+      <!-- PROJECTS SECTION
+      using Bootstrap cards in a responsive grid, based on homework 06 (01-cards.html)
+      but changed up with real project info, card-footer for links, and h-100
+      so they're all the same height. each column is col-md-4 so they
+      sit three across on medium and stack on mobile -->
       <section id="projects" class="mb-5">
         <h2>Projects</h2>
         <div class="row">
           <div class="col-md-4 mb-3">
             <div class="card h-100">
               <div class="card-body">
+                <!-- h3 for correct heading hierarchy (h1 > h2 > h3),
+                but using Bootstrap's h5 class to keep the font size small -->
                 <h3 class="card-title h5">Melodarr</h3>
                 <p class="card-text">
                   Automated music downloader and organizer that works with
@@ -241,6 +280,7 @@
                 </p>
               </div>
               <div class="card-footer">
+                <!-- rel="noopener noreferrer" is for security when using target="_blank" -->
                 <a
                   href="https://github.com/JosephBec/Melodarr"
                   target="_blank"
@@ -300,6 +340,13 @@
           </div>
         </div>
       </section>
+
+      <!-- CONTACT SECTION
+      form structure is based on homework 02 (the accessibility form exercise)
+      but reworked for a contact form with name, email, and message fields.
+      each label uses "for" to match the input's "id" for accessibility.
+      the actual submission is handled by JavaScript in main.js,
+      which validates the fields and prevents the default form submit -->
       <section id="contact" class="mb-5">
         <h2>Contact</h2>
         <form id="contact-form" action="/submit">
@@ -319,9 +366,13 @@
         </form>
       </section>
     </main>
+
     <footer class="text-center py-3">
       <p>&copy; 2026 Joseph Bec</p>
     </footer>
+
+    <!-- Bootstrap JS bundle loaded at the bottom of body,
+    needed for the navbar toggler and accordion to actually work -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
   </body>

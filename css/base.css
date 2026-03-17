@@ -1,7 +1,10 @@
+/* border-box makes padding not add to the element's width, way easier to work with */
 * {
   box-sizing: border-box;
 }
 
+/* color variables used across both css files
+green is the main accent color, light-green is for hover/active states */
 :root {
   --white: #fcfcfc;
   --black: #040404;
@@ -12,6 +15,7 @@
   --light-green: #e8f0eb;
 }
 
+/* base font and colors for the whole page */
 body {
   font-family: "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 1.1em;
