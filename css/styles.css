@@ -3,6 +3,14 @@
   background-color: var(--green) !important;
 }
 
+.navbar .nav-link {
+  color: #ffffff !important;
+}
+
+.navbar .nav-link:hover {
+  color: var(--gray3) !important;
+}
+
 /* sections */
 section {
   padding: 1.5em 0;
