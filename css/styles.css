@@ -1,3 +1,8 @@
+/* offset scroll so fixed navbar doesn't cover headings */
+html {
+  scroll-padding-top: 80px;
+}
+
 /* navbar */
 .navbar {
   background-color: var(--green) !important;
